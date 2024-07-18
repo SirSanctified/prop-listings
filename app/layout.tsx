@@ -14,11 +14,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
@@ -52,9 +47,7 @@ export const metadata: Metadata = {
     ],
     determiner: "auto",
   },
-  themeColor: "#ffffff",
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
-  colorScheme: "light",
 };
 
 export default function RootLayout({
