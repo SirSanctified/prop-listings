@@ -1,32 +1,37 @@
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Button } from "./ui/button";
-import { MailIcon, PhoneIcon } from "lucide-react";
+import { PhoneIcon } from "lucide-react";
+import { Property } from "@/types";
+import Link from "next/link";
 
-export default function HomePropertyCard() {
+export default function HomePropertyCard({ property }: { property: Property }) {
   return (
-    <Card className=" bg-white rounded-lg overflow-hidden min-w-full sm:min-w-64">
+    <Card className=" bg-white rounded-lg overflow-hidden min-w-full sm:min-w-[398px] max-h-[400px]">
       <CardHeader className="p-0">
         <Image
-          src={"/hero.jpg"}
-          alt="Image"
+          src={property.images[0]?.filePath ?? "/hero.jpg"}
+          alt={property.title}
           width={"500"}
           height={"500"}
           loading="lazy"
+          className="max-h-[300px] object-cover w-full"
         />
       </CardHeader>
       <CardContent className="items-start w-full space-y-1 px-4 py-2 flex flex-col">
         <p className="text-sm w-full text-start text-muted-foreground capitalize">
-          Property Type
+          {property.type}
         </p>
-        <h4 className="font-medium capitalize">Luxury Family Home</h4>
+        <h4 className="font-medium capitalize line-clamp-1">
+          {property.title}
+        </h4>
         <p className="text-sm w-full text-start text-muted-foreground capitalize">
-          83 HindHead Avenue, Chisipite, Harare
+          {property.address}
         </p>
         <div className="flex gap-4 items-start justify-center">
-          <span>Beds: 2</span>
-          <span>Baths: 1</span>
-          <span className="uppercase">2000 sqm</span>
+          <span>Beds: {property.bedrooms}</span>
+          <span>Baths: {property.bathrooms}</span>
+          <span className="uppercase">{property.propertySize}</span>
         </div>
       </CardContent>
       <CardFooter className="border-t border-gray-400 flex items-center justify-between gap-4 px-4 py-2">
@@ -53,12 +58,14 @@ export default function HomePropertyCard() {
             <AtSymbol className="w-5 h-5" />
           </Button>
         </div>
-        <Button
-          variant={"outline"}
-          className="border-primary text-md  hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
-        >
-          Details
-        </Button>
+        <Link href={`/listings/${property.id}`}>
+          <Button
+            variant={"outline"}
+            className="border-primary text-md  hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
+          >
+            Details
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
