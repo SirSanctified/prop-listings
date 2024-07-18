@@ -5,7 +5,7 @@ import { MailIcon, PhoneIcon } from "lucide-react";
 
 export default function HomePropertyCard() {
   return (
-    <Card className="shadow-md shadow-black/30 bg-white rounded-lg overflow-hidden min-w-full sm:min-w-64">
+    <Card className=" bg-white rounded-lg overflow-hidden min-w-full sm:min-w-64">
       <CardHeader className="p-0">
         <Image
           src={"/hero.jpg"}

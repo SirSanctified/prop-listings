@@ -59,7 +59,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(" bg-gray-200", lato.className)}
+        className={cn(
+          " bg-gray-200 max-w-[100dvw] overflow-x-hidden",
+          lato.className
+        )}
         suppressHydrationWarning
       >
         <Nav />

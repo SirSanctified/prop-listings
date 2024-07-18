@@ -18,12 +18,12 @@ export default function Hero() {
   return (
     <section className="bg-[url(/hero.jpg)] bg-cover bg-center bg-no-repeat w-screen">
       <div className="bg-black/70 w-full flex flex-col justify-center items-center px-4  min-h-[300px]">
-        <div className="max-w-2xl w-full mx-auto space-y-4 py-4">
+        <div className="max-w-4xl w-full mx-auto space-y-4 py-4">
           <div className="bg-white flex items-center gap-1 rounded-full w-max p-1 transition-all duration-300 ease-linear">
             <div
               onClick={() => setListingType("for sale")}
               className={cn(
-                "h-full p-2 rounded-full transition-all duration-500 ease-linear",
+                "h-full p-2 py-1 rounded-full transition-all duration-500 ease-linear",
                 listingType === "for sale"
                   ? "bg-primary text-white"
                   : "bg-transparent"
@@ -34,7 +34,7 @@ export default function Hero() {
             <div
               onClick={() => setListingType("to rent")}
               className={cn(
-                "h-full p-2 rounded-full transition-all duration-500 ease-linear",
+                "h-full p-2 py-1 rounded-full transition-all duration-500 ease-linear",
                 listingType === "to rent"
                   ? "bg-primary text-white"
                   : "bg-transparent"

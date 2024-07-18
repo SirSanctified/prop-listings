@@ -1,3 +1,4 @@
+import CTACards from "@/components/cta-cards";
 import ForRent from "@/components/for-rent";
 import ForSale from "@/components/for-sale";
 import Hero from "@/components/hero";
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <ForSale />
       <ForRent />
+      <CTACards />
     </main>
   );
 }
