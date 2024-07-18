@@ -12,5 +12,4 @@ A modern, user-friendly property listings website built with Next.js and Tailwin
 ![Property Listings Preview](/public/peviews/6.png)
 ![Property Listings Preview](/public/peviews/7.png)
 ![Property Listings Preview](/public/peviews/8.png)
-![Property Listings Preview](/public/peviews/9.png)
 ![Property Listings Preview](/public/peviews/10.png)
