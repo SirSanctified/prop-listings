@@ -28,7 +28,7 @@ export default async function ListingPage({
   metadata.description = data.description;
 
   return (
-    <div className="min-h-screen grid max-w-7xl p-4 mx-auto md:grid-cols-[1fr_400px] content-start gap-4 pt-8">
+    <div className="min-h-screen grid max-w-7xl p-4 mx-auto lg:grid-cols-[1fr_400px] content-start gap-4 pt-8">
       <div className="w-full space-y-4">
         <ListingHeader
           name={data.title}
