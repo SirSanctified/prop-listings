@@ -29,12 +29,12 @@ export async function getPropertiesForSaleOrRent(
   let data: Property[] | undefined;
   let error: string | undefined;
   try {
-    const response = await api.get<Property[]>(
+    const response = await api.get<{ data: Property[]; status: string }>(
       `/${
         type === "sale" ? "for-sale?search=for-sale" : "to-rent?search=to-rent"
       }`
     );
-    data = response.data ?? undefined;
+    data = response.data.data ?? undefined;
   } catch (err) {
     error = err instanceof Error ? err.message : "An unexpected error occurred";
   }
