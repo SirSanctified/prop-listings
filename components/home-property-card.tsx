@@ -71,7 +71,7 @@ export default function HomePropertyCard({ property }: { property: Property }) {
   );
 }
 
-function AtSymbol(props: React.SVGProps<SVGSVGElement>) {
+export function AtSymbol(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ function AtSymbol(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function WhatsAppLogo(props: React.SVGProps<SVGSVGElement>) {
+export function WhatsAppLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
