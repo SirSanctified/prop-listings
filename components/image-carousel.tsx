@@ -14,6 +14,7 @@ export default function ImageCarousel({ images }: { images: ImageType[] }) {
           alt="Listing Image"
           width={"1080"}
           height={"720"}
+          priority
           className="object-contain"
         />
       </div>
@@ -25,6 +26,7 @@ export default function ImageCarousel({ images }: { images: ImageType[] }) {
             onClick={() => setActiveImageIndex(index)}
             height={"150"}
             width={"150"}
+            loading="lazy"
             alt="Property Image"
             className="object-cover cursor-pointer"
           />
