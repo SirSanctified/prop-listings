@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import { cn } from "@/lib/utils";
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700", "900"] });
 
@@ -57,7 +58,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lato.className}>
+      <body
+        className={cn(" bg-gray-200", lato.className)}
+        suppressHydrationWarning
+      >
         <Nav />
         <main className="mx-auto px-4">{children}</main>
         <Footer />
