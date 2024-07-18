@@ -1,7 +1,7 @@
 import { Property, PropertyResponse, type Data } from "@/types";
 import axios from "axios";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
@@ -48,8 +48,10 @@ export async function getPropertyById(id: string): Promise<{
   let data: Property | undefined;
   let error: string | undefined;
   try {
-    const response = await api.get<Property>(`/details/${id}`);
-    data = response.data ?? undefined;
+    const response = await api.get<{ data: Property; status: string }>(
+      `/details/${id}`
+    );
+    data = response.data.data ?? undefined;
   } catch (err) {
     error = err instanceof Error ? err.message : "An unexpected error occurred";
   }
