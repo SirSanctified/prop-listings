@@ -8,13 +8,19 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import Switcher from "./switcher";
+import { Suspense } from "react";
 
+export function SwitcherFallback() {
+  return <div className="w-full p-4 bg-gray-300 animate-pulse" />;
+}
 export default function Hero() {
   return (
     <section className="bg-[url(/hero.jpg)] bg-cover bg-center bg-no-repeat w-screen">
       <div className="bg-black/70 w-full flex flex-col justify-center items-center px-4  min-h-[300px]">
         <div className="max-w-4xl w-full mx-auto space-y-4 py-4">
-          <Switcher />
+          <Suspense fallback={<SwitcherFallback />}>
+            <Switcher />
+          </Suspense>
           <div className="rounded-lg bg-white px-4 py-6 w-full flex items-start space-y-2 sm:items-center flex-col sm:flex-row sm:space-x-1 sm:space-y-0">
             <DropdownMenu>
               <DropdownMenuTrigger

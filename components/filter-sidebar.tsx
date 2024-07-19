@@ -8,11 +8,15 @@ import {
 } from "./ui/dropdown-menu";
 import { Input } from "./ui/input";
 import Switcher from "./switcher";
+import { Suspense } from "react";
+import { SwitcherFallback } from "./hero";
 
 export default function FilterSidebar() {
   return (
     <div className="flex flex-col gap-4 items-start justify-start">
-      <Switcher />
+      <Suspense fallback={<SwitcherFallback />}>
+        <Switcher />
+      </Suspense>
       <Card className="w-full py-4">
         <CardContent className="grid gap-2 pb-1">
           <DropdownMenu>
