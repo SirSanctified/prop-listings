@@ -2,6 +2,11 @@
 
 A modern, user-friendly property listings website built with Next.js and Tailwind CSS.
 
+## PageSpeed Insights
+
+![PageSpeed Insights Desktop](/public/peviews/0.png)
+![PageSpeed Insights Mobile](/public/peviews/00.png)
+
 ## Previews
 
 ![Property Listings Preview](/public/peviews/1.png)
