@@ -43,7 +43,7 @@ export default function ColumnPropertyCard({
     <Card
       className={cn(
         "bg-white rounded-lg overflow-hidden min-w-full transition-all duration-300 ease-linear",
-        view === "list" && "w-full flex"
+        view === "list" && "w-full flex flex-col sm:flex-row"
       )}
     >
       <CardHeader className="p-0 relative">
@@ -126,6 +126,7 @@ export default function ColumnPropertyCard({
               className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
             >
               <WhatsAppLogo className="w-5 h-5" />
+              <span className="sr-only">Chat with agent on Whatsapp</span>
             </Button>
             <Button
               variant={"outline"}
@@ -133,6 +134,7 @@ export default function ColumnPropertyCard({
               className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
             >
               <PhoneIcon className="w-5 h-5" />
+              <span className="sr-only">Call agent</span>
             </Button>
             <Button
               variant={"outline"}
@@ -140,6 +142,7 @@ export default function ColumnPropertyCard({
               className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
             >
               <AtSymbol className="w-5 h-5" />
+              <span className="sr-only">Email agent</span>
             </Button>
           </div>
           <Link href={`/listings/${property.id}`}>

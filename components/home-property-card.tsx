@@ -42,6 +42,7 @@ export default function HomePropertyCard({ property }: { property: Property }) {
             className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
           >
             <WhatsAppLogo className="w-5 h-5" />
+            <span className="sr-only">Chat with agent on Whatsapp</span>
           </Button>
           <Button
             variant={"outline"}
@@ -49,6 +50,7 @@ export default function HomePropertyCard({ property }: { property: Property }) {
             className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
           >
             <PhoneIcon className="w-5 h-5" />
+            <span className="sr-only">Call agent</span>
           </Button>
           <Button
             variant={"outline"}
@@ -56,6 +58,7 @@ export default function HomePropertyCard({ property }: { property: Property }) {
             className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
           >
             <AtSymbol className="w-5 h-5" />
+            <span className="sr-only">Email agent</span>
           </Button>
         </div>
         <Link href={`/listings/${property.id}`}>

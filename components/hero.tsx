@@ -17,7 +17,10 @@ export default function Hero() {
           <Switcher />
           <div className="rounded-lg bg-white px-4 py-6 w-full flex items-start space-y-2 sm:items-center flex-col sm:flex-row sm:space-x-1 sm:space-y-0">
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger
+                role="button"
+                asChild
+              >
                 <div className="bg-white h-full p-2  rounded-lg border border-gray-300 flex items-center justify-between gap-4 w-full sm:max-w-44">
                   Property Types{" "}
                   <ChevronDownIcon className="w-5 h-5 opacity-70" />

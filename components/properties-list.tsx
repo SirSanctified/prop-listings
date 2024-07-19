@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { LayoutGridIcon, ListIcon } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import Pagination from "./pagination";
 
 export default function PropertiesList({
   properties,
@@ -13,6 +14,12 @@ export default function PropertiesList({
   properties: Property[];
 }) {
   const [view, setView] = useState<"list" | "grid">("list");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(10);
+  const offset = (currentPage - 1) * limit;
+  const totalPages = Math.ceil(properties.length / limit);
+
+  const properiesToRender = properties.slice(offset, offset + limit);
   return (
     <div className="w-full space-y-4">
       <div className="p-2 py-1 border bg-white border-gray-300 rounded-lg flex items-center justify-between gap-4">
@@ -49,7 +56,7 @@ export default function PropertiesList({
           view === "grid" && "grid sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-3"
         )}
       >
-        {properties.map((property) => (
+        {properiesToRender.map((property) => (
           <ColumnPropertyCard
             key={property.id}
             property={property}
@@ -57,6 +64,12 @@ export default function PropertiesList({
           />
         ))}
       </div>
+      <Pagination
+        pages={totalPages}
+        limit={limit}
+        setCurrentPage={setCurrentPage}
+        setLimit={setLimit}
+      />
     </div>
   );
 }
