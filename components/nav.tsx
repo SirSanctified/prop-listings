@@ -84,7 +84,7 @@ export default function Nav() {
                     <ListItem
                       key={link.title}
                       title={link.title}
-                      href={link.href}
+                      href={"/listings/?query=sale"}
                     />
                   ))}
                 </ul>
@@ -98,7 +98,7 @@ export default function Nav() {
                     <ListItem
                       key={link.title}
                       title={link.title}
-                      href={link.href}
+                      href={"/listings/?query=rent"}
                     />
                   ))}
                 </ul>
@@ -106,7 +106,7 @@ export default function Nav() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link
-                href="#"
+                href="/listings"
                 legacyBehavior
                 passHref
               >
@@ -229,7 +229,9 @@ function MobileNav() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-blue-900 focus:bg-accent focus:text-blue-900"
                       >
                         <SheetClose asChild>
-                          <Link href={link.href}>{link.title}</Link>
+                          <Link href={"/listings/?query=sale"}>
+                            {link.title}
+                          </Link>
                         </SheetClose>
                       </li>
                     ))}
@@ -251,7 +253,9 @@ function MobileNav() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-blue-900 focus:bg-accent focus:text-blue-900"
                       >
                         <SheetClose asChild>
-                          <Link href={link.href}>{link.title}</Link>
+                          <Link href={"/listings/?query=rent"}>
+                            {link.title}
+                          </Link>
                         </SheetClose>
                       </li>
                     ))}
@@ -262,7 +266,7 @@ function MobileNav() {
             <li className="py-2 text-normal font-medium w-full">
               <SheetClose asChild>
                 <Link
-                  href="#"
+                  href="/listings"
                   legacyBehavior
                   passHref
                   className={navigationMenuTriggerStyle()}
