@@ -147,11 +147,11 @@ export default function EnquiryForm({ listingId }: { listingId: string }) {
               render={({ field }) => (
                 <FormItem className="space-y-1">
                   <FormControl>
-                    <Input
-                      type="text"
-                      placeholder="Enter your message"
+                    <textarea
+                      placeholder="Message"
                       {...field}
-                      className="border border-gray-400 rounded-lg"
+                      rows={4}
+                      className="border border-gray-400 rounded-lg flex min-h-9 w-full bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </FormControl>
                   <FormMessage />
