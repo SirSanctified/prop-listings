@@ -102,9 +102,7 @@ export default function ColumnPropertyCard({
         <p className="text-sm w-full text-start text-primary capitalize">
           {property.type}
         </p>
-        <h4 className="font-medium capitalize line-clamp-1">
-          {property.title}
-        </h4>
+        <p className="font-medium capitalize line-clamp-1">{property.title}</p>
         <p className="text-sm w-full text-start text-muted-foreground capitalize">
           {property.address}
         </p>

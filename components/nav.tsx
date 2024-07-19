@@ -201,6 +201,7 @@ function MobileNav() {
           className="lg:hidden cursor-pointer hover:text-blue-900 hover:border hover:border-primary focus:border-primary"
         >
           <MenuIcon />
+          <span className="sr-only">Open Navigation Menu</span>
         </Button>
       </SheetTrigger>
       <SheetContent>

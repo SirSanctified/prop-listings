@@ -15,7 +15,7 @@ export function SwitcherFallback() {
 }
 export default function Hero() {
   return (
-    <section className="bg-[url(/hero.jpg)] bg-cover bg-center bg-no-repeat w-screen">
+    <section className="bg-[url(/hero.avif)] bg-cover bg-center bg-no-repeat w-screen">
       <div className="bg-black/70 w-full flex flex-col justify-center items-center px-4  min-h-[300px]">
         <div className="max-w-4xl w-full mx-auto space-y-4 py-4">
           <Suspense fallback={<SwitcherFallback />}>
