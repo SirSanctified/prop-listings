@@ -14,11 +14,14 @@ import { Property } from "@/types";
 import Link from "next/link";
 import { AtSymbol, WhatsAppLogo } from "./home-property-card";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function ColumnPropertyCard({
   property,
+  view = "list",
 }: {
   property: Property;
+  view?: "list" | "grid";
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const handlePrevImage = () => {
@@ -37,7 +40,12 @@ export default function ColumnPropertyCard({
     }
   };
   return (
-    <Card className="bg-white rounded-lg overflow-hidden min-w-full">
+    <Card
+      className={cn(
+        "bg-white rounded-lg overflow-hidden min-w-full transition-all duration-300 ease-linear",
+        view === "list" && "w-full flex"
+      )}
+    >
       <CardHeader className="p-0 relative">
         <Image
           src={property.images[activeIndex]?.filePath ?? "/hero.jpg"}
@@ -45,12 +53,15 @@ export default function ColumnPropertyCard({
           width={"500"}
           height={"500"}
           loading="lazy"
-          className="min-h-[220px] object-cover w-full"
+          className={cn(
+            "object-cover w-full",
+            view === "grid" ? "min-h-[220px]" : "min-h-[240px]"
+          )}
         />
         <div className="absolute top-2 left-2 bg-transparent flex items-center space-x-4">
           <p className="px-1 bg-gray-700 text-white rounded-sm">Featured</p>
-          <p className="px-2 bg-primary text-white rounded-sm">
-            {property.status}
+          <p className="px-2 bg-primary text-white rounded-sm capitalize">
+            {property.status.toLowerCase() === "rental" ? "rent" : "sale"}
           </p>
         </div>
         <Button
@@ -102,40 +113,45 @@ export default function ColumnPropertyCard({
           <span>Baths: {property.bathrooms}</span>
           <span className="uppercase">{property.propertySize}</span>
         </div>
-      </CardContent>
-      <CardFooter className="border-t border-gray-400 flex items-center justify-between gap-4 px-4 py-2">
-        <div className="flex items-center gap-2">
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
-          >
-            <WhatsAppLogo className="w-5 h-5" />
-          </Button>
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
-          >
-            <PhoneIcon className="w-5 h-5" />
-          </Button>
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
-          >
-            <AtSymbol className="w-5 h-5" />
-          </Button>
+        {view === "list" && (
+          <p className="line-clamp-2 text-muted-foreground mb-2">
+            {property.description}
+          </p>
+        )}
+        <div className="border-t border-gray-400 flex w-full items-center justify-between gap-4 mt-2 py-2">
+          <div className="flex items-center gap-2">
+            <Button
+              variant={"outline"}
+              size={"icon"}
+              className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
+            >
+              <WhatsAppLogo className="w-5 h-5" />
+            </Button>
+            <Button
+              variant={"outline"}
+              size={"icon"}
+              className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
+            >
+              <PhoneIcon className="w-5 h-5" />
+            </Button>
+            <Button
+              variant={"outline"}
+              size={"icon"}
+              className="border-primary hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
+            >
+              <AtSymbol className="w-5 h-5" />
+            </Button>
+          </div>
+          <Link href={`/listings/${property.id}`}>
+            <Button
+              variant={"outline"}
+              className="border-primary text-md  hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
+            >
+              Details
+            </Button>
+          </Link>
         </div>
-        <Link href={`/listings/${property.id}`}>
-          <Button
-            variant={"outline"}
-            className="border-primary text-md  hover:bg-primary hover:text-white transition-all duration-300 ease-linear rounded-xl text-primary"
-          >
-            Details
-          </Button>
-        </Link>
-      </CardFooter>
+      </CardContent>
     </Card>
   );
 }

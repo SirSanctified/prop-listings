@@ -1,5 +1,3 @@
-"use client";
-
 import { ChevronDownIcon, SearchIcon, XIcon } from "lucide-react";
 import {
   DropdownMenu,
@@ -9,44 +7,18 @@ import {
 } from "./ui/dropdown-menu";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import Switcher from "./switcher";
 
 export default function Hero() {
-  const [listingType, setListingType] = useState("for sale");
-
   return (
     <section className="bg-[url(/hero.jpg)] bg-cover bg-center bg-no-repeat w-screen">
       <div className="bg-black/70 w-full flex flex-col justify-center items-center px-4  min-h-[300px]">
         <div className="max-w-4xl w-full mx-auto space-y-4 py-4">
-          <div className="bg-white flex items-center gap-1 rounded-full w-max p-1 transition-all duration-300 ease-linear">
-            <div
-              onClick={() => setListingType("for sale")}
-              className={cn(
-                "h-full p-2 py-1 rounded-full transition-all duration-500 ease-linear",
-                listingType === "for sale"
-                  ? "bg-primary text-white"
-                  : "bg-transparent"
-              )}
-            >
-              For Sale
-            </div>
-            <div
-              onClick={() => setListingType("to rent")}
-              className={cn(
-                "h-full p-2 py-1 rounded-full transition-all duration-500 ease-linear",
-                listingType === "to rent"
-                  ? "bg-primary text-white"
-                  : "bg-transparent"
-              )}
-            >
-              To Rent
-            </div>
-          </div>
+          <Switcher />
           <div className="rounded-lg bg-white px-4 py-6 w-full flex items-start space-y-2 sm:items-center flex-col sm:flex-row sm:space-x-1 sm:space-y-0">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div className="bg-white h-full p-2  rounded-lg border border-gray-300 flex items-center justify-between gap-4 w-full max-w-44">
+                <div className="bg-white h-full p-2  rounded-lg border border-gray-300 flex items-center justify-between gap-4 w-full sm:max-w-44">
                   Property Types{" "}
                   <ChevronDownIcon className="w-5 h-5 opacity-70" />
                 </div>
