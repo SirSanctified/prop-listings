@@ -39,7 +39,7 @@ export default function ForSale({ properties }: { properties: Property[] }) {
   }, [properties.length]);
 
   return (
-    <section className="w-full max-w-7xl my-4">
+    <section className="w-full max-w-7xl overflow-hidden my-4">
       <h2 className="text-2xl font-semibold capitalize">Properties for rent</h2>
       <div
         ref={scrollRef}

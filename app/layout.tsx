@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
@@ -51,6 +51,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
 };
 
+export const viewport: Viewport = {
+  viewportFit: "cover",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  minimumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,10 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          " bg-gray-200 max-w-[100dvw] overflow-x-hidden",
-          lato.className
-        )}
+        className={cn("bg-gray-200 overflow-x-hidden", lato.className)}
         suppressHydrationWarning
       >
         <Nav />

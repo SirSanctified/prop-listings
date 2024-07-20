@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function HomePropertyCard({ property }: { property: Property }) {
   return (
-    <Card className=" bg-white rounded-lg overflow-hidden min-w-full sm:min-w-[398px] max-h-[400px]">
+    <Card className=" bg-white rounded-lg overflow-hidden min-w-full snap-start sm:min-w-[398px] max-h-[400px]">
       <CardHeader className="p-0">
         <Image
           src={property.images[0]?.filePath ?? "/hero.jpg"}
